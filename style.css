@@ -1,83 +1,152 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
 
 html {
-      background-color: #1a1b26;
-      align-items: center;
-      color: #ebdbb2;
-      display: flex;
-      font-family: 'Ubuntu Mono', monospace;
-      font-size: 25px;
-      height: 100%;
-      justify-content: center;
-      margin: 0;
-    }
+  background-color: #1a1b26;
+  color: #ebdbb2;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 25px;
+  min-height: 100%;
+  margin: 0;
+}
 
-    body {
-      display: flex;
-      margin: 1em;
-      padding: 1em;
-    }
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  margin: 1em;
+  padding: 1em;
+  min-height: calc(100vh - 4em);
+  box-sizing: border-box;
+}
 
-    h1 {
-      font-size: 2em;
-      grid-column: 1 / -1;
-      margin: 0;
-      text-align: center;
-      color: #ff7a93;
-    }
+h1 {
+  font-size: 2em;
+  grid-column: 1 / -1;
+  margin: 0 0 0.5em;
+  text-align: center;
+  color: #ff7a93;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    a:focus,
-    a:hover {
-      color: #a9b1d6;
-    }
+a:focus,
+a:hover {
+  color: #a9b1d6;
+}
 
-    nav {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      margin: 0 1em;
-      min-width: 24em;
-      padding: 1em 0;
-    }
+nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5em 2em;
+  margin: 0;
+  padding: 1em 0;
+  min-width: 0;
+}
 
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      white-space: nowrap;
-    }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
 
-    li:first-child {
-      font-weight: bold;
-      line-height: 2em;
-      color: #ad8ee6;
-    }
+li:first-child {
+  font-weight: bold;
+  line-height: 2em;
+  color: #ad8ee6;
+}
 
-    img {
-      border: 2px solid #ebdbb2;
-      height: auto;
-      object-fit: cover;
-      object-position: 50% 100%;
-      width: 10em;
-    }
+img {
+  display: block;
+  border: 2px solid #ebdbb2;
+  height: auto;
+  object-fit: cover;
+  object-position: 50% 100%;
+  width: 10em;
+  max-width: 30vw;
+}
+
+form {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 0.5em;
+}
 
 input {
-  background-color: unset;
+  box-sizing: border-box;
+  background-color: transparent;
   font: 16px 'Ubuntu Mono', monospace;
   color: #ebdbb2;
-  height: 100%;
   width: 100%;
-  border-top-style: hidden;
-  border-bottom-style: soild;
-  border-left-style: hidden;
-  border-right-style: hidden;
-  border-bottom-color: #ff9e64;
-  text-align: center;
-  margin-top: 50px;
+  border: 0;
+  border-bottom: 1px solid #ff9e64;
+  text-align: left;
+  margin: 0;
   outline: 0;
-  padding-bottom: 0.5em;
+  padding: 0.5em 0;
+}
+
+input::placeholder {
+  color: #787c99;
+}
+
+input:focus {
+  border-bottom-color: #ff7a93;
+}
+
+/* Medium screens */
+@media (max-width: 1100px) {
+  html {
+    font-size: 20px;
+  }
+
+  nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5em;
+  }
+
+  body {
+    gap: 1.5em;
+  }
+
+  img {
+    width: 8em;
+  }
+}
+
+/* Small screens */
+@media (max-width: 700px) {
+  body {
+    flex-direction: column;
+    margin: 0.5em;
+    padding: 0.5em;
+  }
+
+  nav {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1em;
+  }
+
+  img {
+    width: min(12em, 80vw);
+    max-width: 100%;
+  }
+}
+
+/* Very narrow screens */
+@media (max-width: 400px) {
+  html {
+    font-size: 18px;
+  }
+
+  nav {
+    grid-template-columns: 1fr;
+  }
 }
