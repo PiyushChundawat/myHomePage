@@ -22,7 +22,7 @@ body {
 }
 
 h1 {
-  font-size: 1.8em;
+  font-size: 1.6em;
   grid-column: 1 / -1;
   margin: 0 0 0.2em;
   text-align: center;
@@ -59,7 +59,7 @@ ul {
 
 li:first-child {
   font-weight: bold;
-  line-height: 1.5em;
+  line-height: 1.4em;
   color: #ad8ee6;
 }
 
